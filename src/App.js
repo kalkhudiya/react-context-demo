@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import ChildComp from './ChildComp';
+import userContext from './userContext';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <userContext.Provider value={{
+        name: 'Viren'
+      }}>
+        {/* Child component inside provider */}
+        <ChildComp />
+      </userContext.Provider>
+      {/* Child component outside provider */}
+      <ChildComp />
     </div>
   );
 }
